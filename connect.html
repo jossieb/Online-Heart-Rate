@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+<meta http-equiv="refresh" content="10" /> 
+{% block title %}
+    Connect
+{% endblock %}
+
+{% block main %}
+
+<section class="splitter">
+    <div class="een">   
+      <form action="/connect" method="post">
+        <div class="form-group">
+          <input class="form-control" name="fake" type="hidden" placeholder="Fake">
+        </div>
+        <button class="btn btn-primary" type="submit">Connect Sensor</button>
+      </form>
+    </div>
+
+    <div class="twee">   
+      <textarea id="txtarear" rows="5" cols="60">
+        {{ conntext | safe }}
+      </textarea>
+    </div>
+</section>
+<section class="splitter">
+  <div class="een">   
+    <form action="/monitor" method="post">
+    <div class="form-group">
+      <input class="form-control" name="fake" type="hidden" placeholder="Fake">
+    </div>    
+      <button class="btn btn-primary" type="submit">Monitoring</button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+<meta http-equiv="refresh" content="1" /> 
+{% block title %}
+    Monitor
+{% endblock %}
+
+{% block main %}
+<script>
+  function timedRefresh(timeoutPeriod) {
+    setTimeout("location.reload(true);",timeoutPeriod);
+  }
+  window.onload = timedRefresh(1000);
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<section class="splitter"></section>
+    <div class="een" align="left" id="hrimage">
+        <img src="static/hr_back.jpg">
+          <div id="hrtext_normal">
+            <h1>Heart Rate</h1>
+            <div id="hrrate_normal">
+                <p>{{rate}} </p>
+            </div>
+          </div>
+    </div>
+    <div class="twee">    
+        <canvas id="myChart" style=width:50%;max-width:600px></canvas>
+        <script>
+            var xValues = {{ tsts | safe }};
+            var yValues = {{ rates | safe }};
+            
+            new Chart("myChart", {
+              type: "line",
+              data: {
+                labels: xValues,
+                datasets: [{
+                  fill: false,
+                  lineTension: 0,
+                  backgroundColor: "rgba(0,0,255,1.0)",
+                  borderColor: "rgba(0,0,255,0.1)",
+                  data: yValues
+                }]
+              },
+              options: {
+                legend: {display: false},
+                title: {
+                    display: true,
+                    text: "Heart Rate"
+                },
+                scales: {
+                  yAxes: [{ticks: {min: 0, max:250}}],
+                },
+              }
+            });
+        </script>  
+    </div>
+</section>
+{% endblock %}

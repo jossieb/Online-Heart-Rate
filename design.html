@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+<meta http-equiv="refresh" content="1" /> 
+{% block title %}
+    Monitor
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<header class="alert alert-primary border text-center" role="alert">
+  {{ message }}
+</header>
+{% endif %}
+{% endwith %}
+
+{% block main %}
+<!-- Container (About Section) -->
+<section class="splitter"></section>
+  <div class="een" align="left">
+    <h5>DESIGN OF THE ONLINE HEART RATE MONITOR</h5>
+    <br>
+    <p> 
+        <b>1)</b>	To measure my heart rate I use a chest band sensor from ‘XAND’.  This sensor is able to use both Bluetooth and ANT. In my case I use the Bluetooth protocol to gather the measured data.
+        <br><br>
+        <b>2)</b>	Since my laptop doesn’t support Bluetooth I use a cheap dongle to receive the data over Bluetooth on my laptop.
+        <br><br>
+        <b>3)</b>	On my laptop a Flask application is running. This application supports a couple of routes:
+        <br>
+        - <i>Home;</i> a short description on the background of the application<br>
+        - <i>Connect;</i> makes a connection between the application and the sensor. Kudo’s for Adafruit for sharing the Python code to do this. The app is notified if the connection has been made. Once the connection is there the sensor data is received and stored in a sqlite database.<br>
+        - <i>Monitor;</i> displays in a streaming mode the received heart rate data together with a chart displaying the last 60 heart rates received in the database.<br>
+        - <i>Design;</i> a more functional description about the design of the application.<br>
+        - <i>Specs;</i> a more technical description about the components used.<br>
+        - <i>Test;</i> where you can manually add a heart rate to the database table heart_rates.
+        <br><br>
+        <b>4)</b>	Since I run the application is using a local webserver the front-end can be reached through the browser at URL http://127.0.0.1:50000
+        <br><br>
+        <b>5)</b>	To use the monitor functionality you must first connect the application to the sensor and then choose monitor.
+        <br><br>
+        <b>6)</b>	<b>To do</b>: since this is the MVP version of the application there is still a wish list of functionality like:<br>
+        a.	seamlessly refresh the data instead of the complete page<br>
+        b.	change the colors of the rate and data points based on heart rate<br>
+        c.	activate alert based on high measured heart rate<br>
+        d.	activate/deactivate monitor button/tab based on connection<br>
+        e.	be able to drop the connection with the sensor<br>
+        f.  improve the front end to better adapt to multiple devices<br>
+        g.  make app available within my local network<br>
+    </p>
+
+  </div>
+  <div class="twee">
+      <img src="static/hrm.jpg" style="width:600px;border: 2px solid #555;">
+      <br><br>
+      <img src="static/jb_monitor.jpg" style="width:600px;border: 2px solid #555;">
+      <br><br>
+      <img src="static/flask_run.jpg" style="width:600px;border: 2px solid #555;">
+  </div>
+
+{% endblock %}

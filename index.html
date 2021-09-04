@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<header class="alert alert-primary border text-center" role="alert">
+  {{ message }}
+</header>
+{% endif %}
+{% endwith %}
+
+{% block main %}
+<!-- Container (About Section) -->
+<section class="splitter"></section>
+  <div class="een" align="left">
+    <h5>ABOUT THE ONLINE HEART RATE MONITOR</h5>
+    <br>
+    <p>The <b>Online Heart Rate Monitor</b> has been realised as part of my online Harvard CS50X course.
+    I started that cource because I was recovering from a heart attack and had lots of spare time.
+    During the course I learned that at the end there was a final project to showcase your skills.</p>
+    <p>So I tried to combine the one and the other...</p>
+    <p>After a heart attack you become aware of the importance of the motor that drives you; your <b><span class="w3-text-red">HEART</b></span>!</p>
+    <p>During sporting I use a heart rate sensor so I came up with the idea of monitoring my heart rate with the help of a full stack website.</p>
+    <p>Besides that, this kind of functionality becomes more and more main stream. Companies like <a href="https://www.zwift.com/eu" target="_blank">Zwift</a> for virtual sporting, where all kind of sensors are used to feed the virtual environment, are booming.</p>
+    <p>More details can be found at the <a href="/design"><b>design page</b></a> and the <a href="/specs"><b>specs page.</b></a></p>
+    <p>
+  </div>
+  <div class="twee">
+      <img src="static/jb_monitor.jpg" style="width:600px;border: 2px solid #555;">
+  </div>
+
+{% endblock %}

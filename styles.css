@@ -1,0 +1,137 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* Colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* Center form controls */
+    display: inline-block;
+
+    /* Override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* Scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* Center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* Constrain images on small screens */
+    max-width: 100%;
+}
+
+/* make the table a 100% wide by default */
+table {
+    width: 100%;}
+    
+/* if the browser window is at least 800px-s wide: */
+@media screen and (min-width: 800px) {
+    table {
+    width: 90%;}
+  }
+  
+/* if the browser window is at least 1000px-s wide: */
+@media screen and (min-width: 1000px) {
+    table {
+    width: 80%;}
+  }
+/* background for HR image */
+#hrimage{
+    position:relative;
+    overflow:hidden;
+z-index:1;}
+/* HR text normal */  
+#hrtext_normal{
+    color:white;
+    position:absolute;
+    top:10px;
+    left: 100px;
+    z-index:2;
+    }
+/* HR text warning > 90 */  
+#hrtext_warning{
+    color:yellow;
+    position:absolute;
+    left: 100px;
+    top:10px;
+    z-index:2;
+    }
+/* HR text alarm > 140 */  
+#hrtext_alarm{
+    color:red;
+    position:absolute;
+    left: 100px;
+    top:10px;
+    z-index:2;
+    }
+#hrrate_normal{
+    color:white;
+    position:absolute;
+    font-size:100px;
+    font-weight: bold;
+    top:50px;
+    left:40px;
+    z-index:3;
+    }
+#hrrate_warning{
+    color:yellow;
+    position:absolute;
+    font-size:100px;
+    font-weight: bold;
+    top:50px;
+    left:40px;
+    z-index:3;
+    }
+#hrrate_alarm{
+    color:red;
+    position:absolute;
+    font-size:100px;
+    font-weight: bold;
+    top:50px;
+    left:20px;
+    z-index:3;
+    }
+.splitter {
+
+    }
+      
+.een {
+    float: left;
+    width: 40%;
+    }
+    
+.twee {
+    width: 60%px;
+    }
+
+#shadowbox {
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px #888888;
+    }

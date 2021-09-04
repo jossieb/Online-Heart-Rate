@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+<meta http-equiv="refresh" content="1" /> 
+{% block title %}
+    Monitor
+{% endblock %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+<header class="alert alert-primary border text-center" role="alert">
+  {{ message }}
+</header>
+{% endif %}
+{% endwith %}
+
+{% block main %}<!-- Container (About Section) -->
+<section class="splitter"></section>
+  <div class="een" align="left">
+    <h5>SPECS OF THE ONLINE HEART RATE MONITOR</h5>
+    <br>
+    <p> 
+        The MVC application consists of the following components:<br><br>
+        <b>1)	Python app (<i>app.py</i>) as Controller</b><br>
+        Main modules that are used within the Python application are:<br>
+        a.	<b>Flask</b>; A full stack microframework for Python.<br>
+        b.	<b>Adafrui</b>t BLE; Adafruit shared the code for BLE (Bluetooth Low Energy) functionality.<br>
+        c.	<b>Sqlite3</b>; the most used database engine in the world (according to sqlite).<br>
+        <br>
+        <p><b>Code for connecting to the sensor and storing the rates in the database</b></p>
+        <img src="static/code_connect1.jpg" style="width:600px;border: 2px solid #555;">
+        <br>
+        <img src="static/code_connect2.jpg" style="width:600px;border: 2px solid #555;">
+        <br>
+        <b>2)	HTML files (<i>layout, index, connect, monitor, design, specs, test</i>) as View</b><br>
+        The front end is using Javascript and Javascript libraries to deliver a nice UX:<br>
+        a.	<b>jQuery</b>; to simplify the HTML handling<br>
+        b.	<b>Chart.js</b>; to create a nice graphic chart with heart rates<br><br>
+        Front end also uses:<br>
+        a.	<b>CSS</b>; to control the layout of the web pages<br>
+        b.	<b>Bootstrap</b>; as HTML, CSS, and JavaScript framework<br>
+        <br>
+        <b>3)	Database (<i>monitor.db</i>) as Model</b><br>
+        The database consists of only one file heart_rates to hold the received heart rates.<br>
+        <img src="static/monitordb.jpg" style="width:600px;border: 2px solid #555;">    
+    </p>
+    <br>
+    <p>All code is written with the help of the great IDE Visual Studio Code</p>
+
+  </div>
+  <div class="twee">
+      <p><b>MVC design pattern</b></p>
+      <img src="static/mvc.jpg" style="width:200px;border: 2px solid #555;">
+      <br><br>
+      <p><b>Code for connecting to the sensor and storing the rates in the database</b></p>
+      <img src="static/code_connect1.jpg" style="width:600px;border: 2px solid #555;">
+      <br>
+      <img src="static/code_connect2.jpg" style="width:600px;border: 2px solid #555;">
+  </div>
+{% endblock %}

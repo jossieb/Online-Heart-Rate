@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Test
+{% endblock %}
+
+{% block main %}
+<section class="splitter"></section>
+    <div class="een" align="left" id="hrimage">
+        <img src="static/hr_back.jpg">
+        <div id="hrtext_alarm">
+            <h1>Heart rate</h1>
+            <div id="hrrate_alarm">
+                <p>{{rate}} </p>
+            </div>
+        </div>
+    </div>
+    <div class="twee">   
+      <form action="/test" method="post"
+          <div class="form-group">
+              <input class="form-control" name="rate" placeholder="Heart rate" type="integer" required>
+          </div>
+          <button class="btn btn-primary" type="submit">Add</button>
+      </form>
+    </div>
+</section>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <th class="text-right">Heart Rate</th>
+      <th class="text-left">Date-time</th>
+    </thead>
+    <tbody>
+      <!-- Loop through the database entries to display them in this table -->
+      {% for record in rates %}
+      <tr>
+        <td align="right">{{record[0] }}</td>
+        <td align="left">{{record[1] }}</td>
+      </tr>
+      {% endfor %}
+  
+    </tbody>
+  </table>
+</div>
+{% endblock %}
